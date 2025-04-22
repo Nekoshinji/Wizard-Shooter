@@ -1,0 +1,9 @@
+{
+	"lua.format.linebreakMultipleAssignments": true,
+	"lua.format.singleQuote": true,
+	"lua.format.indentCount": 2,
+	"lua.preferLuaCheckErrors": true,
+	"pixelbyte.love2d.debug": true,
+	"pixelbyte.love2d.revealStatus": true,
+	"pixelbyte.love2d.runOnSave": true
+}

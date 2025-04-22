@@ -9,19 +9,19 @@ io.stdout:setvbuf('no')
 SCREEN_SIZE = {width = 800, height = 600}
 
 local wizard = require('wizard')
-local fireBall = require('fireBall')
+local magicCircle = require('magicCircle')
 
 function love.load()
 end
 
 function love.update(dt)
   wizard.update(dt)
-  fireBall.update(dt)
+  magicCircle.update(dt)
 end
 
 function love.draw()
   wizard.draw()
-  fireBall.draw()
+  magicCircle.draw()
 end
 
 function love.keypressed(key)

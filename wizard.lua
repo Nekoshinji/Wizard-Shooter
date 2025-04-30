@@ -4,7 +4,7 @@ wizard.speed = 200
 wizard.direction = 0
 wizard.angle = 0
 wizard.health = 100
-wizard.attack = 50
+wizard.attack = math.random(5, 15)
 wizard.radius = 20
 
 wizard.move = {}
@@ -24,9 +24,6 @@ local offset = {
 }
 
 function wizard.update(dt)
-  if wizard.state == 'dead' then
-    return nil -- Ne pas tirer de fireball si le wizard est mort
-  end
   if love.keyboard.isDown('d') then
     wizard.position.x = wizard.position.x + wizard.speed * dt
   elseif love.keyboard.isDown('q') then
@@ -36,6 +33,11 @@ function wizard.update(dt)
   elseif love.keyboard.isDown('z') then
     wizard.position.y = wizard.position.y - wizard.speed * dt
   end
+end
+
+function wizard.limitScreen()
+  wizard.position.x = math.max(0, math.min(SCREEN_SIZE.width, wizard.position.x))
+  wizard.position.y = math.max(0, math.min(SCREEN_SIZE.height, wizard.position.y))
 end
 
 function wizard.damage(bomboAttack)
@@ -62,11 +64,14 @@ function wizard.draw()
     wizard.position.x,
     wizard.position.y,
     wizard.angle,
-    1,
-    1,
+    1.2,
+    1.2,
     offset.x,
     offset.y
   )
+  local lifeDiplay = 'Health Wizard: ' .. wizard.health
+  love.graphics.setColor(1, 1, 1)
+  love.graphics.printf(lifeDiplay, 0, 0, SCREEN_SIZE.width, 'left')
 end
 
 function wizard.getPosition()

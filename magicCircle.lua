@@ -10,9 +10,6 @@ local offset = {x = magicCircleImg:getWidth() * .5, y = magicCircleImg:getHeight
 local magicCircle = {}
 
 function magicCircle.update(dt)
-    if wizard.state == 'dead' then
-        return
-      end
   local mouseX,
     mouseY = love.mouse.getPosition()
   local dx = mouseX - wizard.position.x
@@ -36,9 +33,6 @@ function magicCircle.draw()
 end
 
 function magicCircle.fireBall()
-    if wizard.state == 'dead' then
-        return nil
-      end
   local dx = math.cos(magicCircleAngle)
   local dy = math.sin(magicCircleAngle)
   local fireB = newFireBall(magicCirclePosition.x, magicCirclePosition.y, dx, dy)

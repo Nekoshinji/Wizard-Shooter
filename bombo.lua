@@ -3,7 +3,7 @@ local wizard = require('wizard')
 function bombo()
   local bombo = {}
   bombo.img = love.graphics.newImage('assets/images/enemy/Bombo/bomb1b.png')
-  bombo.positionX = 400
+  bombo.positionX = 0
   bombo.positionY = 0
   bombo.direction = 0
   bombo.angle = math.random(0, 2 * math.pi)
@@ -12,12 +12,12 @@ function bombo()
   bombo.speed = 50
   bombo.patrolSpeed = bombo.speed * .5
   bombo.target = nil
-  bombo.patrolTimer = math.random(1, 4)
+  bombo.patrolTimer = math.random(0, 2)
   bombo.distance = 50
-  bombo.visionRange = 200
+  bombo.visionRange = 300
   bombo.shootRange = 100
   bombo.health = 70
-  bombo.attack = 10
+  bombo.attack = math.random(3, 10)
   bombo.shootTimer = 0
   bombo.shootCooldown = math.random(1, 2)
   bombo.radius = 40
